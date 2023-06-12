@@ -1,0 +1,70 @@
+.wrapper {
+    transition: all .3s ease;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    padding: 8px 15px;
+    
+    
+    &:active {
+        transform: scale(0.95);
+    }
+
+    .text {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 18px;
+        margin: 0 4px;
+    }
+
+    .icon {
+        font-size: 15px;
+        line-height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 4px;
+    }
+}
+
+.wrapper.fill {
+    width: 100%;
+}
+
+.wrapper.violet_fill {
+    background-color: var(--violet_1);
+    border-color: var(--violet_1);
+
+    .text,.icon {
+        color: #fff;
+    }
+}
+
+.wrapper.violet_outlined {
+    border-color: var(--violet_1);
+    background-color: #fff;
+
+    .text,.icon{
+        color: var(--violet_1);
+    }
+}
+
+.wrapper.violet_simple {
+    border-color: transparent;
+    background-color: #fff;
+
+    .text,.icon {
+        color: var(--violet_1);
+    }
+}
+
+.wrapper.violet_light {
+    background-color: var(--violet_2);
+    border-color: var(--violet_2);
+
+    .text,.icon {
+        color: var(--violet_1);
+    }
+}

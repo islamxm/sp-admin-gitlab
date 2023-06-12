@@ -1,0 +1,16 @@
+.wrapper {
+
+    .body {
+
+        .emps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            .emps_label {
+                font-size: 15px;
+                line-height: 18px;
+            }
+        }
+    }
+}
