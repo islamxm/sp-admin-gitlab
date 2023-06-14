@@ -1,0 +1,22 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .label {
+        // white-space: nowrap;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        color: var(--black);
+        margin-right: 12px;
+    }
+
+    .body {
+        width: 100%;
+    }
+}
+
+.wrapper.fill {
+    width: 100%;
+}

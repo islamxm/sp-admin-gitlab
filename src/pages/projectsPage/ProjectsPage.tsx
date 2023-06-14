@@ -12,7 +12,7 @@ const ProjectsPage = () => {
     return (
         <div className={styles.wrapper}>
 
-            <ProjectModal open/>
+            <ProjectModal/>
 
 
             <Header title="Проекты">

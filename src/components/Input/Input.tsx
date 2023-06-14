@@ -4,16 +4,23 @@ import { IInput } from './types';
 
 const Input:FC<IInput> = (props) => {
     const {
-        label
+        label,
+        beforeIcon
     } = props
 
 
     return (
-        <div className={styles.wrapper}>
+        <div className={`${styles.wrapper} ${beforeIcon ? styles.beforeIcon : ''}`}>
             {
                 label && <div className={styles.label}>{label}</div>
             }
-            <input {...props} className={styles.input}/>
+            <div className={styles.main}>
+                {
+                    beforeIcon && <div className={styles.before}>{beforeIcon}</div>
+                }
+                <input {...props} className={styles.input}/>
+            </div>
+            
         </div>
     )
 }
