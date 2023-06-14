@@ -1,0 +1,12 @@
+.wrapper {
+
+    .action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        .action_item {
+            margin: 0 6px;
+        }
+    }
+}

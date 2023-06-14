@@ -4,7 +4,28 @@
 
     .table-row {
 
+        &:last-child {
+            .table-cell {
+                border-bottom: 2px solid #ECECEC;
+            }
+        }
 
+        .table-cell {
+            font-weight: 500;
+            color: #959595;
+            padding: 20px 15px;
+            &:first-child {
+                border-left: 2px solid #ECECEC;
+            }
+            &:last-child {
+                border-right: 2px solid #ECECEC;
+            }
+        }
+
+        .table-cell.bold {
+            font-weight: 700;
+            color: var(--black);
+        }
         
     }
 
@@ -14,7 +35,30 @@
             padding: 20px 15px;
             background: #F9F9FD;
             font-weight: 500;
-            border: 2px solid #ECECEE;
+            border-bottom: 2px solid #ECECEC;
+            text-align: left;
+            border-top: 2px solid #ECECEC;
+            border-bottom: 2px solid #ECECEC;
+            overflow: hidden;
+
+            &:first-child {
+                border-left: 2px solid #ECECEC;
+                
+            }
+            &:last-child {
+                border-right: 2px solid #ececec;
+            }
+        }
+    }
+}
+
+.table.mod_1 {
+    border-radius: 12px;
+   
+    .table-row.table-headrow {
+        .table-head {
+            border-top: none;
+            border-bottom: 2px solid #ECECEC;
         }
     }
 }

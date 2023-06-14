@@ -2,8 +2,13 @@
     width: 100%;
 
     .label {
-
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        color: var(--black);
+        margin-right: 12px;
     }
+    
     .main {
         position: relative;
         width: 100%;
