@@ -6,6 +6,7 @@ import Input from '../../components/Input/Input';
 import Select from '../../components/Select/Select';
 import Button from '../../components/Button/Button';
 import Textarea from '../../components/Textarea/Textarea';
+import DatePicker from '../../components/DatePicker/DatePicker';
 
 const CreateStatePage = () => {
 
@@ -42,7 +43,11 @@ const CreateStatePage = () => {
                                         label='Какому отделу присвоить задачу?'
                                         />
                                 </Col>
-                                <Col span={12}></Col>
+                                <Col span={12}>
+                                    <DatePicker
+                                        label="Когда выполнить задачу?"
+                                        />
+                                </Col>
                                 <Col span={24}>
                                     <Textarea
                                         label='Описание'

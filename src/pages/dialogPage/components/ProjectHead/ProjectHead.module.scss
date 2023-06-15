@@ -1,0 +1,18 @@
+.wrapper {
+    padding: 15px;
+    background: #F9F9FD;
+    border: 2px solid #ECECEE;
+    border-radius: 12px;
+
+    .title {
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 18px;
+        margin-bottom: 12px;
+    }
+
+    .descr {
+        font-weight: 500;
+        color: rgba(42, 42, 42, 0.61);
+    }
+}

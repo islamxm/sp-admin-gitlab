@@ -7,6 +7,7 @@ import EmpsPage from '../pages/empsPage/EmpsPage';
 import ChartPage from '../pages/chartPage/ChartPage';
 import CreateStatePage from '../pages/craeteStatePage/CreateStatePage';
 import BlacklistPage from '../pages/blackListPage/BlacklistPage';
+import DialogPage from '../pages/dialogPage/DialogPage';
 
 const App = () => {
 
@@ -18,6 +19,7 @@ const App = () => {
                     <Route path='/projects' element={<ProjectsPage/>}/>
                     <Route path='/states' element={<StatesPage/>}/>
                     <Route path='/states/create' element={<CreateStatePage/>}/>
+                    <Route path='/states/dialog/:id' element={<DialogPage/>}/>
                     <Route path='/employees' element={<EmpsPage/>}/>
                     <Route path='/employees/blacklist' element={<BlacklistPage/>}/>
                     <Route path='/chart' element={<ChartPage/>}/>

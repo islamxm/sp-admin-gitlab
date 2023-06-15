@@ -76,10 +76,19 @@ const StatesPage = () => {
                                                     />
                                             </Col>
                                             <Col span={4}>
-                                                <DatePicker/>
+                                                <DatePicker
+                                                    label={'Дата от'}
+                                                    />
                                             </Col>
                                             <Col span={4}>
-                                                <DatePicker/>
+                                                <DatePicker
+                                                    label={'Дата до'}
+                                                    />
+                                            </Col>
+                                            <Col span={8}>
+                                                <div className={styles.reset}>
+                                                    <button className={styles.reset_btn}>Сбросить фильтры</button>
+                                                </div>
                                             </Col>
                                         </Row>
                                     </Col>

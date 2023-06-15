@@ -1,0 +1,36 @@
+.wrapper {
+    height: 100vh;
+
+    .in {
+        padding: 25px;
+
+        .head {
+            margin-bottom: 30px;
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 38px;
+        }
+
+        .main {
+
+            .action {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 4px;
+
+                .count {
+                    margin-right: 10px;
+                    color: rgba(42, 42, 42, 0.5);
+                    font-weight: 500;
+                }
+            }
+
+            .list {
+                background: #F9F9FD;
+                border: 2px solid #ECECEE;
+                border-radius: 12px;
+            }
+        }
+    }
+}

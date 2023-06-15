@@ -1,3 +1,15 @@
 .wrapper {
-    
+    .label {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        color: var(--black);
+        margin-right: 12px;
+    }
+    .action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
 }

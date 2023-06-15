@@ -76,6 +76,7 @@
                     margin: 0 4px;
                 }
             }
+
         }
 
         .main {
@@ -87,6 +88,19 @@
                 border-color: #ECECEE;
                 border-radius: 12px 12px 0px 0px;
                 padding: 15px 20px;
+
+                .reset {
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: flex-end;
+                    height: 100%;
+
+                    .reset_btn {
+                        color: rgba(42, 42, 42, 0.8);
+                        text-decoration: underline;
+                        font-weight: 500;
+                    }
+                }
             }
         }
     }

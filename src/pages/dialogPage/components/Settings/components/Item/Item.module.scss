@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+
+    .body {
+        width: 100%;
+        
+        .name {
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .ex {
+            margin-bottom: 2px;
+            color: rgba(42, 42, 42, 0.5);
+            font-size: 12px;
+            font-weight: 500;
+        }
+    }
+
+    .action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 5px;
+    }
+}

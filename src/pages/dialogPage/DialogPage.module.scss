@@ -1,0 +1,33 @@
+.wrapper {
+    
+    .action {
+        display: flex;
+        align-items: center;
+        margin-left: -6px;
+        margin-right: -6px;
+
+        .action_item {
+            margin: 0 6px;
+
+        }
+    }
+
+    .body {
+        display: flex;
+        // align-items: flex-start;
+      
+        .main {
+            width: 100%;
+            padding-right: 25px;
+        }
+
+        .side {
+            width: 390px;
+            flex: 0 0 auto;
+            background: #FFFFFF;
+            border-left: 2px solid #ECECEE;
+            height: 100%;
+            
+        }
+    }
+}

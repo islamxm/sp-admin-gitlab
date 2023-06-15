@@ -1,0 +1,44 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 10px;
+    padding-top: 0;
+    
+    .label {
+        text-align: center;
+        font-weight: 700;
+        // margin-bottom: 22px;
+    }
+
+    .body {
+        width: 207px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            margin: 0 12px;
+            
+        }
+
+        .part {
+            display: flex;
+            margin-left: -2px;
+            margin-right: -2px;
+
+            input {
+                height: 41px;
+                width: 41px;
+                background: #F9F9FD;
+                border: 2px solid #ECECEE;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                margin:0 2px;
+            }
+        }
+    }
+}
