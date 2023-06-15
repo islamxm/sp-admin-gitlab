@@ -5,19 +5,26 @@ import ProjectItem from './components/ProjectItem/ProjectItem';
 import {Row, Col} from 'antd';
 import ContentLayout from '../../components/ContentLayout/ContentLayout';
 import ProjectModal from '../../modals/ProjectModal/ProjectModal';
+import {useState} from 'react';
 
 const ProjectsPage = () => {
+    const [addProjectModal, setAddProjectModal] = useState(false)
+
 
 
     return (
         <div className={styles.wrapper}>
 
-            <ProjectModal/>
+            <ProjectModal
+                open={addProjectModal}
+                onCancel={() => setAddProjectModal(false)}
+                />
 
 
             <Header title="Проекты">
                 <Button
                     text='Создать новый проект'
+                    onClick={() => setAddProjectModal(true)}
                     />
             </Header>
             <ContentLayout>
