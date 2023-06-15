@@ -5,9 +5,10 @@ import {useState, useRef, useEffect} from 'react';
 import {HiOutlineLink} from 'react-icons/hi';
 import {FiChevronDown} from 'react-icons/fi'
 import IconButton from '../../../../components/IconButton/IconButton';
-
+import LinkedStateModal from '../../../../modals/LinkedStateModal/LinkedStateModal';
 
 const LinkedStates = () => {
+    const [addModal, setAddModal] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const bodyRef = useRef<HTMLDivElement>(null)
     const [height, setHeight] = useState(0)
@@ -23,6 +24,10 @@ const LinkedStates = () => {
 
     return (
         <div className={`${styles.wrapper} ${isOpen ? styles.open : ''}`}>
+            <LinkedStateModal
+                open={addModal}
+                onCancel={() => setAddModal(false)}
+                />
             <div className={styles.head}>
                 <div className={styles.label}>
                     <div  className={styles.title}>
@@ -39,6 +44,7 @@ const LinkedStates = () => {
                     <Button
                         text='Добавить'
                         variant={'violet-simple'}
+                        onClick={() => setAddModal(true)}
                         beforeIcon={<BsPlusLg/>}
                         />
                 </div>
