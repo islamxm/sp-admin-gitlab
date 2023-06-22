@@ -56,6 +56,47 @@ class ApiService {
         }
     }
 
+
+    getCreationData = async (token: any) => {
+        try {
+            let res = await fetch(endpoints.getCreationData, {
+                method: "POST",
+                headers: {
+                    ...headers,
+                    'Authorization': token
+                }
+            })
+            const r = await checkAuth(res)
+            return await r;
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
+
+    addTicket = async (token: any, body: {
+        title: string,
+        project_id: string,
+        urgency_id: string,
+        department_id: string,
+        target_date: string,
+        description: string
+    }) => {
+        try {
+            let res = await fetch(endpoints.addTicket, {
+                method: "POST",
+                headers: {
+                    ...headers,
+                    'Authorization': token
+                },
+                body: JSON.stringify(body)
+            })
+            const r = await checkAuth(res)
+            return await r;
+        } catch(err) {
+            console.log(err)
+        }
+    }
 }
 
 export default ApiService;

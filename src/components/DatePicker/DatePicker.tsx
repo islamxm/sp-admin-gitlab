@@ -13,7 +13,7 @@ interface I {
     label?: string
 }
 
-const DatePicker:FC<any & I> = (props) => {
+const DatePicker:FC<DatePickerProps & I> = (props) => {
     const {label} = props
     // const pickerRef = useRef<any>(null)
     
@@ -47,7 +47,6 @@ const DatePicker:FC<any & I> = (props) => {
             <div className={styles.main}>
                 <AntDatePicker 
                     {...props}
-                    showTime
                     // open={open}
                     // onFocus={() => {
                     //     setOpen(true)
