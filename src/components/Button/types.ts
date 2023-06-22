@@ -5,7 +5,8 @@ export interface IButton extends HTMLProps<HTMLButtonElement> {
     beforeIcon?: ReactNode,
     afterIcon?: ReactNode,
     variant?: buttonVariants,
-    fill?: boolean 
+    fill?: boolean
+    load?: boolean
 }
 
 

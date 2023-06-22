@@ -8,7 +8,9 @@ const mainSlice = createSlice({
         main_tokenSet: (state, action) => {state.token = action.payload},
         main_tokenDelete: (state) => {state.token = null},
         main_sidebarClose: (state) => {state.sidebarState = true},
-        main_sidebarOpen: (state) => {state.sidebarState = false}
+        main_sidebarOpen: (state) => {state.sidebarState = false},
+        
+        main_updateUserData: (state,action) => {state.userData = action.payload}
     }
 })
 
@@ -20,5 +22,6 @@ export const {
     main_tokenSet,
     main_tokenDelete,
     main_sidebarClose,
-    main_sidebarOpen
+    main_sidebarOpen,
+    main_updateUserData
 } = actions

@@ -1,0 +1,16 @@
+.wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .form {
+        max-width: 400px;
+        width: 100%;
+
+        .title {
+            text-align: center;
+            
+        }
+    }
+}

@@ -23,10 +23,25 @@
         width: 100%;
         margin: 0 10px;
         line-height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .admin_action {
+            display: flex;
+            align-items: center;
+
+
+            .members {
+                margin-right: 5px;
+            }
+        }
     }
 
     .action {
-
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         .new {
             position: relative;
             padding-left: 22px;

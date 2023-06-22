@@ -1,7 +1,7 @@
 import styles from './Button.module.scss';
 import {FC} from 'react'
 import { IButton, buttonVariants } from './types';
-
+import { PulseLoader } from 'react-spinners';
 
 const switchVariant = (variant: buttonVariants) => {
     switch(variant) {
@@ -20,7 +20,7 @@ const switchVariant = (variant: buttonVariants) => {
 
 
 const Button:FC<IButton> = (props) => {
-    const {variant = 'violet-fill', text, afterIcon, beforeIcon, fill} = props
+    const {variant = 'violet-fill', text, afterIcon, beforeIcon, fill, load} = props
 
 
 
@@ -28,8 +28,12 @@ const Button:FC<IButton> = (props) => {
         <button 
             {...props}
             type='button'
-            className={`${styles.wrapper} ${switchVariant(variant)} ${fill ? styles.fill : ''}`}>
-                
+            className={`${styles.wrapper} ${switchVariant(variant)} ${fill ? styles.fill : ''} ${load ? styles.load : ''}`}>
+            {
+                load && <div className={styles.loader}>
+                    <PulseLoader color='#fff'/>
+                </div>
+            }
             {
                 beforeIcon && <div className={`${styles.icon} ${styles.icon_before}`}>{beforeIcon}</div>
             }

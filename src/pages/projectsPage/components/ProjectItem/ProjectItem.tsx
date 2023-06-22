@@ -1,19 +1,62 @@
 import styles from './ProjectItem.module.scss';
 import Button from '../../../../components/Button/Button';
 import {LuCopyCheck} from 'react-icons/lu'
+import { useAppSelector } from '../../../../hooks/reduxHooks';
+import IconButton from '../../../../components/IconButton/IconButton';
+import {FiUsers} from 'react-icons/fi'
+import {HiOutlinePlus} from 'react-icons/hi';
+import { useEffect } from 'react';
 
-const ProjectItem = () => {
+const ProjectItem = ({
+    id,
+    members,
+    tickets,
+    title
+}: {
+    id: string,
+    members: any[],
+    tickets: string,
+    title: string
+}) => {
+    const {userData} = useAppSelector(s => s.mainReducer)
+
+    useEffect(() => {
+        console.log(userData)
+    },[userData])
 
     return (
         <div className={styles.wrapper}>
             <div className={styles.prev}>
-                A
+                {title[0]}
             </div>
-            <div className={styles.body}>Электронный документооборот</div>
+            <div className={styles.body}>
+                <div className={styles.title}>{title}</div>
+                {
+                    userData?.isAdmin === '1' && (
+                        <div className={styles.admin_action}>
+                            <div className={styles.members}>
+                                <Button
+                                    style={{padding: 0}}
+                                    text={members?.length?.toString()}
+                                    beforeIcon={<FiUsers/>}
+                                    variant={'violet-simple'}
+                                    />
+                            </div>
+                            <div className={styles.add_member}>
+                                <Button
+                                    text='Добавить сотрудников'
+                                    variant={'violet-light'}
+                                    afterIcon={<HiOutlinePlus/>}
+                                    />
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
             <div className={styles.action}>
-                <div className={styles.new}>+5 заявок</div>
+                <div></div>
                 <div className={styles.count}>
-                    <Button beforeIcon={<LuCopyCheck/>} text='12' variant={'violet-light'}/>
+                    <Button beforeIcon={<LuCopyCheck/>} text={tickets} variant={'violet-light'}/>
                 </div>
             </div>
         </div>
