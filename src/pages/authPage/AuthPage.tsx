@@ -1,6 +1,6 @@
 import styles from './AuthPage.module.scss';
 import ContentLayout from '../../components/ContentLayout/ContentLayout';
-import { Row, Col } from 'antd';
+import { Row, Col, message } from 'antd';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import LOCAL_STORAGE from '../../utils/localStorage';
@@ -38,6 +38,8 @@ const AuthPage = () => {
                         role: res?.role
                     }))
                     navigate('/', {replace: true})
+                } else {
+                    message.error('Произошла ошибка!')
                 }
             }).finally(() => {
                 setLoad(false)
