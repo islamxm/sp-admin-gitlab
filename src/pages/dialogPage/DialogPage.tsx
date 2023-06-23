@@ -21,7 +21,7 @@ const DialogPage = () => {
                 <div className={styles.action}>
                     <div className={styles.action_item}>
                         <Button
-                            beforeIcon={<HiOutlineLink/>}
+                            beforeicon={<HiOutlineLink/>}
                             text='Создать связанную заявку'
                             variant={'violet-outlined'}
                             />

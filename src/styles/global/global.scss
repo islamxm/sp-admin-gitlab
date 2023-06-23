@@ -37,3 +37,20 @@ body {
     font-size: 15px;
     line-height: 18px;
 }
+
+.ddd {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40px;
+
+    .ddd-name {
+        line-height: 100%;
+        
+    }
+
+    .ddd-role {
+        color: rgba(56, 56, 56, 0.50);
+        font-size: 12px;
+    }
+}

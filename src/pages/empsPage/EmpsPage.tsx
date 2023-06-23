@@ -21,7 +21,6 @@ const EmpsPage = () => {
                 open={addEmpModal}
                 onCancel={() => setAddEmpModal(false)}
                 />
-
             <Header
                 title='Сотрудники'
                 >

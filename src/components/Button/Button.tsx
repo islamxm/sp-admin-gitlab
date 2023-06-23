@@ -20,7 +20,7 @@ const switchVariant = (variant: buttonVariants) => {
 
 
 const Button:FC<IButton> = (props) => {
-    const {variant = 'violet-fill', text, afterIcon, beforeIcon, fill, load} = props
+    const {variant = 'violet-fill', text, aftericon, beforeicon, fill, load} = props
 
 
 
@@ -35,7 +35,7 @@ const Button:FC<IButton> = (props) => {
                 </div>
             }
             {
-                beforeIcon && <div className={`${styles.icon} ${styles.icon_before}`}>{beforeIcon}</div>
+                beforeicon && <div className={`${styles.icon} ${styles.icon_before}`}>{beforeicon}</div>
             }
 
             {
@@ -43,7 +43,7 @@ const Button:FC<IButton> = (props) => {
             }
 
             {
-                afterIcon && <div className={`${styles.icon} ${styles.icon_after}`}>{afterIcon}</div>
+                aftericon && <div className={`${styles.icon} ${styles.icon_after}`}>{aftericon}</div>
             }
 
         </button>

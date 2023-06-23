@@ -97,6 +97,39 @@ class ApiService {
             console.log(err)
         }
     }
+
+    getEmps = async (token: any) => {
+        try {
+            let res = await fetch(endpoints.getEmps, {
+                method: "POST",
+                headers: {
+                    ...headers,
+                    'Authorization': token
+                },
+            })
+            const r = await checkAuth(res)
+            return await r;
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
+    editProjectEmps = async (token: any, body: {project_id: number | string, employees_id: number[]}) => {
+        try {
+            let res = await fetch(endpoints.editProjectMembers, {
+                method: "POST",
+                headers: {
+                    ...headers,
+                    'Authorization': token
+                },
+                body: JSON.stringify(body)
+            })
+            const r = await checkAuth(res)
+            return await r;
+        } catch(err) {
+            console.log(err)
+        }
+    }
 }
 
 export default ApiService;

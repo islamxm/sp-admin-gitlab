@@ -18,7 +18,10 @@ const endpoints = {
     editUrgency: `${API_PATH}tickets/change_urgency.php`,
     editAssignee: `${API_PATH}tickets/change_assignee.php`,
     setWorkStatus: `${API_PATH}tickets/set_work_status.php`,
-    sendMessage: `${API_PATH}tickets/send_message.php`
+    sendMessage: `${API_PATH}tickets/send_message.php`,
+
+
+    getEmps: `${API_PATH}employees/get_employees.php`,
 
 }
 

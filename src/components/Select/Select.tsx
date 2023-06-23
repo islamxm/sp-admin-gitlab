@@ -12,6 +12,7 @@ const Select:FC<ISelect> = (props) => {
             <div className={styles.body}>
                 <AntSelect
                     {...props}
+                    
                     />
             </div>
         </div>

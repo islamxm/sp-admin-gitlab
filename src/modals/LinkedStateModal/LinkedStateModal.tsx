@@ -32,7 +32,7 @@ const LinkedStateModal:FC<ModalFuncProps & I> = (props) => {
                         <Button
                             text='Добавить заявку'
                             variant={'violet-outlined'}
-                            beforeIcon={<HiOutlineLink/>}
+                            beforeicon={<HiOutlineLink/>}
                             />
                     </div>
                 </Col>

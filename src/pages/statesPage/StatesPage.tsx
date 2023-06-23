@@ -134,7 +134,7 @@ const StatesPage = () => {
                                         </td>
                                         <td className='table-cell'>
                                             <Button
-                                                beforeIcon={<IoChatbubblesOutline/>}
+                                                beforeicon={<IoChatbubblesOutline/>}
                                                 variant={'violet-light'}
                                                 text='12'
                                                 />

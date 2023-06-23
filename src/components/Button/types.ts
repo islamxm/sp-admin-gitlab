@@ -1,9 +1,9 @@
 import { HTMLProps, ReactNode } from "react";
 
 export interface IButton extends HTMLProps<HTMLButtonElement> {
-    text?: string,
-    beforeIcon?: ReactNode,
-    afterIcon?: ReactNode,
+    text?: string | number,
+    beforeicon?: ReactNode,
+    aftericon?: ReactNode,
     variant?: buttonVariants,
     fill?: boolean
     load?: boolean

@@ -45,7 +45,7 @@ const LinkedStates = () => {
                         text='Добавить'
                         variant={'violet-simple'}
                         onClick={() => setAddModal(true)}
-                        beforeIcon={<BsPlusLg/>}
+                        beforeicon={<BsPlusLg/>}
                         />
                 </div>
             </div>
@@ -53,7 +53,7 @@ const LinkedStates = () => {
                 <div className={styles.in}>
                     <div className={styles.item}>
                         <Button
-                            beforeIcon={<HiOutlineLink/>}
+                            beforeicon={<HiOutlineLink/>}
                             variant={'violet-simple'}
                             text='Электронный документооборот'
                             />

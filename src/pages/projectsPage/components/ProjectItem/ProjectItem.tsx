@@ -11,18 +11,18 @@ const ProjectItem = ({
     id,
     members,
     tickets,
-    title
+    title,
+    onEmpEdit
 }: {
     id: string,
     members: any[],
     tickets: string,
-    title: string
+    title: string,
+    onEmpEdit?: (...args: any[]) => any 
 }) => {
     const {userData} = useAppSelector(s => s.mainReducer)
 
-    useEffect(() => {
-        console.log(userData)
-    },[userData])
+    
 
     return (
         <div className={styles.wrapper}>
@@ -37,16 +37,17 @@ const ProjectItem = ({
                             <div className={styles.members}>
                                 <Button
                                     style={{padding: 0}}
-                                    text={members?.length?.toString()}
-                                    beforeIcon={<FiUsers/>}
+                                    text={members?.length}
+                                    beforeicon={<FiUsers/>}
                                     variant={'violet-simple'}
                                     />
                             </div>
                             <div className={styles.add_member}>
                                 <Button
+                                    onClick={() => onEmpEdit && onEmpEdit({project_id: id, members})}
                                     text='Добавить сотрудников'
                                     variant={'violet-light'}
-                                    afterIcon={<HiOutlinePlus/>}
+                                    aftericon={<HiOutlinePlus/>}
                                     />
                             </div>
                         </div>
@@ -56,7 +57,7 @@ const ProjectItem = ({
             <div className={styles.action}>
                 <div></div>
                 <div className={styles.count}>
-                    <Button beforeIcon={<LuCopyCheck/>} text={tickets} variant={'violet-light'}/>
+                    <Button beforeicon={<LuCopyCheck/>} text={tickets} variant={'violet-light'}/>
                 </div>
             </div>
         </div>
