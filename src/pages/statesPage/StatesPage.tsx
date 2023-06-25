@@ -14,9 +14,58 @@ import PriorityChip from '../../components/PriorityChip/PriorityChip';
 import TableState from './components/TableState/TableState';
 import TableEmps from './components/TableEmps/TableEmps';
 import DatePicker from '../../components/DatePicker/DatePicker';
+import { useAppSelector } from '../../hooks/reduxHooks';
+import ApiService from '../../service/ApiService';
+import { useEffect, useState } from 'react';
+const service = new ApiService()
+
+
+
 
 const StatesPage = () => {
+    const {token} = useAppSelector(s => s.mainReducer)
     const nav = useNavigate()
+    const [list, setList] = useState<any[]>([])
+    const [load, setLoad] = useState(false)
+
+    //filter
+    const [department_id, setdepartment_id] = useState()
+    const [project_id, setproject_id] = useState()
+    const [date_from, setdate_from] = useState()
+    const [date_to, setdate_to] = useState()
+    const [search, setsearch] = useState()
+    const [search_by, setsearch_by] = useState()
+    const [limit, setlimit] = useState()
+    const [offset, setoffset] = useState()
+    const [order_by, setorder_by] = useState()
+    const [order, setorder] = useState()
+
+
+
+    const getTickets = () => {
+        if(token) {
+            setLoad(true)
+            service.getTickets(token, {
+                department_id,
+                project_id,
+                date_from,
+                date_to,
+                search,
+                search_by,
+                limit,
+                offset,
+                order_by,
+                order
+            }).then(res => {
+                console.log(res?.tickets)
+                if(res?.error === false) setList(res?.tickets)
+            }).finally(() => setLoad(false))
+        }
+    }
+
+    useEffect(() => {
+        getTickets()
+    }, [token])
 
     return (
         <div className={styles.wrapper}>

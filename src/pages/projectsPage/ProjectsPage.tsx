@@ -98,7 +98,46 @@ const ProjectsPage = () => {
                                 </Col>
                             ))
                         }
-                        
+                        {
+                            list?.map((item) => (
+                                <Col span={12} key={item.id}>
+                                    <ProjectItem 
+                                        {...item}
+                                        onEmpEdit={onEditEmp}
+                                        />
+                                </Col>
+                            ))
+                        }
+                        {
+                            list?.map((item) => (
+                                <Col span={12} key={item.id}>
+                                    <ProjectItem 
+                                        {...item}
+                                        onEmpEdit={onEditEmp}
+                                        />
+                                </Col>
+                            ))
+                        }
+                        {
+                            list?.map((item) => (
+                                <Col span={12} key={item.id}>
+                                    <ProjectItem 
+                                        {...item}
+                                        onEmpEdit={onEditEmp}
+                                        />
+                                </Col>
+                            ))
+                        }
+                        {
+                            list?.map((item) => (
+                                <Col span={12} key={item.id}>
+                                    <ProjectItem 
+                                        {...item}
+                                        onEmpEdit={onEditEmp}
+                                        />
+                                </Col>
+                            ))
+                        }
                     </Row>
                 </div>
             </ContentLayout>

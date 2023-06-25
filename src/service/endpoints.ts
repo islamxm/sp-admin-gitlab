@@ -22,6 +22,7 @@ const endpoints = {
 
 
     getEmps: `${API_PATH}employees/get_employees.php`,
+    getTickets: `${API_PATH}tickets/get_tickets.php`
 
 }
 

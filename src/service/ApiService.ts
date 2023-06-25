@@ -130,6 +130,23 @@ class ApiService {
             console.log(err)
         }
     }
+
+    getTickets = async (token:any, body: any) => {
+        try {
+            let res = await fetch(endpoints.getTickets, {
+                method: "POST",
+                headers: {
+                    ...headers,
+                    'Authorization': token
+                },
+                body: JSON.stringify(body)
+            })
+            const r = await checkAuth(res)
+            return await r;
+        } catch(err) {
+            console.log(err)
+        }
+    }
 }
 
 export default ApiService;
