@@ -12,6 +12,9 @@ import AuthPage from '../pages/authPage/AuthPage';
 import { Provider } from 'react-redux';
 import store from '../store/store';
 import PrivateRoute from '../hoc/PrivateRoute';
+
+
+
 const App = () => {
 
     return (

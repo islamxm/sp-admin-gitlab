@@ -28,12 +28,13 @@ const checkVariant = (variant?: priorityVariants) => {
 }
 
 
-const PriorityChip:FC<IPrChip> = ({variant}) => {
+const PriorityChip:FC<IPrChip> = ({variant, id, title, color_bg, color_text}) => {
 
 
     return (
-        <div className={`${styles.wrapper} ${checkVariant(variant).className}`}>
-            {checkVariant(variant).label}
+        <div className={`${styles.wrapper}`} style={{backgroundColor: color_bg, color: color_text}}>
+            {/* {checkVariant(variant).label} */}
+            {title}
         </div>
     )
 }

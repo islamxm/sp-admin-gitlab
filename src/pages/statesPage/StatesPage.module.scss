@@ -14,7 +14,7 @@
                 display: flex;
                 padding-top: 15px;
                 .tabs_item {
-                    padding-left: 30px;
+                    padding: 0 15px;
                     padding-bottom: 15px;
                     position: relative;
                     cursor: pointer;
@@ -101,6 +101,13 @@
                         font-weight: 500;
                     }
                 }
+            }
+
+            .pag {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 30px 0;
             }
         }
     }

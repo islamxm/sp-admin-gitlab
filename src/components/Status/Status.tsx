@@ -23,11 +23,12 @@ const switchVariant = (variant?: statusVariants) => {
     }
 }
 
-const Status:FC<IStatus> = ({variant}) => {
+const Status:FC<IStatus> = ({variant, title, id, color}) => {
 
     return (
-        <div style={{color: switchVariant(variant).color}} className={styles.wrapper}>
-            {switchVariant(variant).label}
+        <div style={{color}} className={styles.wrapper}>
+            {/* {switchVariant(variant).label} */}
+            {title}
         </div>
     )
 }
