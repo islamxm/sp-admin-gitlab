@@ -1,18 +1,31 @@
 import styles from './Item.module.scss';
 import IconButton from '../../../../../../components/IconButton/IconButton';
 import {IoIosCloseCircleOutline} from 'react-icons/io';
+import { FC } from 'react';
 
-const Item = () => {
+
+interface I {
+    id?: string | number,
+    name?: string,
+    role?: string,
+    dep?:string
+}
+const Item:FC<I> = ({
+    id,
+    name,
+    role,
+    dep
+}) => {
 
     return (
         <div className={styles.wrapper}>
             <div className={styles.body}>
-                <div className={styles.name}>Авдеева Екатерина Андреевна</div>
+                <div className={styles.name}>{name}</div>
                 <div className={styles.ex}>
-                Отдел технической поддержки
+                {dep}
                 </div>
                 <div className={styles.ex}>
-                Программист
+                {role}
                 </div>
             </div>
             <div className={styles.action}>

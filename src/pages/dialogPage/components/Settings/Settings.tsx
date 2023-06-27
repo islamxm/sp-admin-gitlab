@@ -4,9 +4,25 @@ import Select from '../../../../components/Select/Select';
 import styles from './Settings.module.scss';
 import {Row, Col} from 'antd';
 import Item from './components/Item/Item';
+import EmpItem from '../../../../components/EmpItem/EmpItem';
+import { IDialogSettings } from './types';
+import {FC, useState, useEffect} from 'react';
 
 
-const Settings = () => {
+const Settings:FC<IDialogSettings> = ({
+    members,
+    urgencys,
+    seturgency_id,
+    urgency_id
+}) => {
+
+    const [list, setList] = useState<any[]>([])
+
+
+    useEffect(() => {
+        members && setList(members) 
+    }, [members])
+
 
     return (
         <div className={styles.wrapper}>
@@ -17,6 +33,9 @@ const Settings = () => {
                         <Col span={24}>
                             <Select
                                 label='Срочность'
+                                options={urgencys}
+                                value={urgency_id}
+                                onChange={seturgency_id}
                                 />
                         </Col>
                         <Col span={24}>
@@ -34,9 +53,16 @@ const Settings = () => {
                                         />
                                 </div>
                                 <div className={styles.list}>
-                                    <Item/>
-                                    <Item/>
-                                    <Item/>
+                                    {
+                                        list?.map((i,index) => (
+                                            <Item
+                                                name={i?.name}
+                                                role={i?.role}
+                                                dep={i?.department}
+                                                id={i?.id}
+                                                />
+                                        ))
+                                    }
                                 </div>
                             </div>
                         </Col>

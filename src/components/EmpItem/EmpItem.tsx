@@ -7,6 +7,7 @@ interface I {
     name?: string,
     role?: string,
     id: number | string,
+    dep?: string,
     onDelete?: (...args: any[]) => any,
     onEdit?: (...args: any[]) => any
 }
@@ -15,6 +16,7 @@ const EmpItem:FC<I> = ({
     name,
     role,
     id,
+    dep,
     onDelete,
     onEdit
 }) => {
@@ -34,7 +36,9 @@ const EmpItem:FC<I> = ({
                 onClick={() => onEdit && onEdit(id)}
                 >
                 <div className={styles.name}>{name ?? 'Не указано'}</div>
+                {dep && <div className={styles.role}>{dep}</div>}
                 <div className={styles.role}>{role ?? 'Не указано'}</div>
+                
             </div>
         </div>
     )

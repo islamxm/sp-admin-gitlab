@@ -147,6 +147,83 @@ class ApiService {
             console.log(err)
         }
     }
+
+    getTicket = async (token: any, id: string | number) => {
+        try {
+            let res = await fetch(endpoints.getTicket, {
+                method: "POST",
+                headers: {
+                    ...headers,
+                    'Authorization': token
+                },
+                body: JSON.stringify({
+                    ticket_id: id
+                })
+            })
+            const r = await checkAuth(res)
+            return await r;
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
+    closeTicket = async (token: any, id: string | number) => {
+        try {
+            let res = await fetch(endpoints.closeTicket, {
+                method: "POST",
+                headers: {
+                    ...headers,
+                    'Authorization': token
+                },
+                body:JSON.stringify({ticket_id: id})
+            })
+            const r = await checkAuth(res)
+            return await r;
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
+    sendMessage = async (token: any, body: {
+        ticket_id: string,
+        message: string
+    }) => {
+        try {
+            let res = await fetch(endpoints.sendMessage, {
+                method: "POST",
+                headers: {
+                    ...headers,
+                    'Authorization': token
+                },
+                body: JSON.stringify(body)
+            })
+            const r = await checkAuth(res)
+            return await r;
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
+    replyMessage = async (token:any, body: {
+        ticket_id: string | number,
+        message_id: string | number,
+        message: string
+    }) => {
+        try {
+            let res = await fetch(endpoints.replyMessage, {
+                method: "POST",
+                headers: {
+                    ...headers,
+                    'Authorization': token
+                },
+                body:JSON.stringify(body)
+            })
+            const r = await checkAuth(res)
+            return await r;
+        } catch(err) {
+            console.log(err)
+        }
+    }
 }
 
 export default ApiService;

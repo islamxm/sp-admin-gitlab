@@ -253,7 +253,7 @@ const StatesPage = () => {
                                     </tr>
                                     {
                                         list?.map((i,index) => (
-                                            <tr onClick={() => console.log('clicked')} className='table-row' key={index}>
+                                            <tr onClick={() => nav(`/states/dialog/${i?.id}`)} className='table-row' key={index}>
                                                 <td className='table-cell'>
                                                     #{i?.id}
                                                 </td>

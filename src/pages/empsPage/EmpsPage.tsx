@@ -7,12 +7,34 @@ import IconButton from '../../components/IconButton/IconButton';
 import {IoIosCloseCircleOutline} from 'react-icons/io'
 import { useNavigate } from 'react-router-dom';
 import EmpModal from '../../modals/EmpModal/EmpModal';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import ApiService from '../../service/ApiService';
+import { useAppSelector } from '../../hooks/reduxHooks';
+
+const service = new ApiService()
 
 
 const EmpsPage = () => {
+    const {token} = useAppSelector(s => s.mainReducer)
     const nav = useNavigate()
     const [addEmpModal, setAddEmpModal] = useState(false)
+
+    const [list, setList] = useState<any[]>([])
+
+    const getEmps = () => {
+        if(token) {
+            service.getEmps(token).then(res => {
+                console.log(res)
+                setList(res?.employees)
+            })
+        }
+    }
+    
+    useEffect(() => {
+        if(token) {
+            getEmps()
+        }
+    }, [token])
 
     return (
         <div className={styles.wrapper}>
@@ -32,6 +54,7 @@ const EmpsPage = () => {
                         <Button
                             variant={'violet-outlined'}
                             text='Обновить'
+                            onClick={getEmps}
                             />
                     </div>
                     <div className={styles.action_item}>
@@ -52,35 +75,40 @@ const EmpsPage = () => {
                                 ))
                             }
                         </tr>
-                        <tr className='table-row'>
-                            <td className='table-cell'>
-                                #1010
-                            </td>
-                            <td className='table-cell bold'>
-                                <b>Александров Виктор Денисович</b>
-                            </td>
-                            <td className='table-cell bold'>
-                                <b>Менеджер по продажам</b>
-                            </td>
-                            <td className='table-cell bold'>
-                                <b>Отдел продаж</b>
-                            </td>
-                            <td className='table-cell bold'>
-                                <b>email@email.com</b>
-                            </td>
-                            <td className='table-cell bold'>
-                                <b>1234567</b>
-                            </td>
-                            <td className='table-cell bold'>
-                                <b>12/04/2023 12:00</b>
-                            </td>
-                            <td className='table-cell'>
-                                <IconButton
-                                    icon={<IoIosCloseCircleOutline/>}
-                                    variant={'danger-simple'}
-                                    />
-                            </td>
-                        </tr>
+                        {
+                            list?.map((i, index) => (
+                                <tr className='table-row'>
+                                    <td className='table-cell'>
+                                        #{i?.id}
+                                    </td>
+                                    <td className='table-cell bold'>
+                                        <b>{i?.name}</b>
+                                    </td>
+                                    <td className='table-cell bold'>
+                                        <b>{i?.role}</b>
+                                    </td>
+                                    <td className='table-cell bold'>
+                                        <b>{i?.department}</b>
+                                    </td>
+                                    <td className='table-cell bold'>
+                                        <b>{i?.email ?? 'Не указано'}</b>
+                                    </td>
+                                    <td className='table-cell bold'>
+                                        <b>{i?.gitlab_id}</b>
+                                    </td>
+                                    <td className='table-cell bold'>
+                                        <b>12/04/2023 12:00</b>
+                                    </td>
+                                    <td className='table-cell'>
+                                        <IconButton
+                                            icon={<IoIosCloseCircleOutline/>}
+                                            variant={'danger-simple'}
+                                            />
+                                    </td>
+                                </tr>
+                            ))
+                        }
+                        
                     </table>
                 </div>
             </ContentLayout>

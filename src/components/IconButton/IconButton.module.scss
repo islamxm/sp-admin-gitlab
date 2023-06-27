@@ -6,14 +6,27 @@
     line-height: 20px;
     line-height: 100%;
     transition: all .3s ease;
-
+    padding: 8px;
+    border-radius: 8px;
+    user-select: none;
+    
     &:active {
         transform: scale(0.9);
     }
 
+    &:disabled {
+        opacity: .6;
+        pointer-events: none;
+        touch-action: none;
+    }
     
 }
 
 .wrapper.danger_simple {
     color: var(--red_1);
+}
+
+.wrapper.violet_fill {
+    color: #fff;
+    background-color: var(--violet_1);
 }

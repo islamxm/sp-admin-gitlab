@@ -6,12 +6,21 @@ import {HiOutlineLink} from 'react-icons/hi';
 import {FiChevronDown} from 'react-icons/fi'
 import IconButton from '../../../../components/IconButton/IconButton';
 import LinkedStateModal from '../../../../modals/LinkedStateModal/LinkedStateModal';
+import {FC} from 'react';
 
-const LinkedStates = () => {
+
+interface I {
+    list?: any[]
+}
+
+const LinkedStates:FC<I> = ({
+    list
+}) => {
     const [addModal, setAddModal] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const bodyRef = useRef<HTMLDivElement>(null)
     const [height, setHeight] = useState(0)
+    
 
     useEffect(() => {
         if(bodyRef?.current) {
@@ -31,7 +40,7 @@ const LinkedStates = () => {
             <div className={styles.head}>
                 <div className={styles.label}>
                     <div  className={styles.title}>
-                    Связанные заявки <span>3</span>
+                    Связанные заявки <span>{list?.length}</span>
                     </div>
                     <div className={styles.icon}>
                         <IconButton
@@ -51,13 +60,18 @@ const LinkedStates = () => {
             </div>
             <div className={styles.body} ref={bodyRef} style={{height}}>
                 <div className={styles.in}>
-                    <div className={styles.item}>
-                        <Button
-                            beforeicon={<HiOutlineLink/>}
-                            variant={'violet-simple'}
-                            text='Электронный документооборот'
-                            />
-                    </div>
+                    {
+                        list?.map((i, index) => (
+                            <div className={styles.item} key={index}>
+                                <Button
+                                    beforeicon={<HiOutlineLink/>}
+                                    variant={'violet-simple'}
+                                    text={i?.title}
+                                    />
+                            </div>
+                        ))
+                    }
+                   
                 </div>
             </div>
         </div>
