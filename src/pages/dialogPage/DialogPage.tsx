@@ -16,6 +16,7 @@ import { useAppSelector } from '../../hooks/reduxHooks';
 import { message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import {FiArrowUp} from 'react-icons/fi';
+import dialogActiveTypes from '../../utils/dialogActiveTypes';
 
 const service = new ApiService()
 
@@ -32,7 +33,10 @@ const DialogPage = () => {
     const [urgencys, seturgencys] = useState<any[]>([])
 
     //main
+    const [title, settitle] = useState('')
+    const [descr, setdescr] = useState('')
     const [activities, setActivities] = useState<any[]>([])
+    const [reps, setReps] = useState<any[]>([])
     const [text, setText] = useState<string>('')
     const [members, setMembers] = useState<any[]>([])
     const [urgency_id, seturgency_id] = useState<any>(null)
@@ -51,10 +55,15 @@ const DialogPage = () => {
     const getTicket = () => {
         if(id && token)  {
             service.getTicket(token, id).then(res => {
-                console.log(res)
+                settitle(res?.title)
+                setdescr(res?.description)
                 setMembers(res?.members)
                 setLinks(res?.links)
-                setActivities(res?.activities)
+                const parents:any[] = res?.activities?.filter((i:any) => i.replied_message === '0')
+                setActivities(parents)
+                setReps(res?.activities?.filter((i:any) => i.replied_message !== '0'))
+                //console.log(res?.activities?.filter((i:any) => i.replied_message !== '0'))
+                console.log(res?.activities?.filter((i:any) => i.action_type === '5'))
             })
         }
     }
@@ -62,7 +71,6 @@ const DialogPage = () => {
     const getCreationData = () => {
         if(token) {
             service.getCreationData(token).then(res => {
-                console.log(res)
                 seturgencys(res?.urgencys?.map((i: any) => ({label: i?.title, value: i?.id})))
             })
         }
@@ -80,7 +88,6 @@ const DialogPage = () => {
         if(id && token) {
             setCloseLoad(true)
             service.closeTicket(token, id).then(res => {
-                console.log(res)
                 if(res?.error === false) {
                     message.success('Заявка закрыта')
                     nav('/states?status=0', {replace: true})
@@ -126,7 +133,7 @@ const DialogPage = () => {
             <ContentLayout>
                 <div className={styles.body}>
                     <div className={styles.main}>
-                        <div className={styles.head}><ProjectHead/></div>
+                        <div className={styles.head}><ProjectHead title={title} descr={descr} /></div>
                         <div className={styles.chat}>
                             {
                                 links?.length > 0 && (
@@ -138,7 +145,11 @@ const DialogPage = () => {
                                 )
                             }
                             <div className={styles.chatlist}>
-                                <ChatList/>
+                                <ChatList
+                                    members={members}
+                                    list={activities}
+                                    reps={reps}
+                                    />
                             </div>  
                         </div>
                         <div className={styles.action}>

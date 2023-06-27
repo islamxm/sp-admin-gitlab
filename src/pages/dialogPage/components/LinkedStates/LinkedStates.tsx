@@ -7,7 +7,7 @@ import {FiChevronDown} from 'react-icons/fi'
 import IconButton from '../../../../components/IconButton/IconButton';
 import LinkedStateModal from '../../../../modals/LinkedStateModal/LinkedStateModal';
 import {FC} from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 interface I {
     list?: any[]
@@ -16,6 +16,7 @@ interface I {
 const LinkedStates:FC<I> = ({
     list
 }) => {
+    const nav = useNavigate()
     const [addModal, setAddModal] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const bodyRef = useRef<HTMLDivElement>(null)
@@ -64,6 +65,7 @@ const LinkedStates:FC<I> = ({
                         list?.map((i, index) => (
                             <div className={styles.item} key={index}>
                                 <Button
+                                    onClick={() => nav(`/states/dialog/${i.id}`)}
                                     beforeicon={<HiOutlineLink/>}
                                     variant={'violet-simple'}
                                     text={i?.title}

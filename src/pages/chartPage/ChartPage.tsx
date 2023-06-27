@@ -13,7 +13,9 @@ const ChartPage = () => {
 
     const getData = () => {
         if(token) {
-
+            service.getDiagram(token, {}).then(res => {
+                console.log(res)
+            })
         }
     }
 

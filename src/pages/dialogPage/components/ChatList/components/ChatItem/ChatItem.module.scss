@@ -1,0 +1,52 @@
+.wrapper {
+
+    .badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .username {
+            font-weight: 500;
+            line-height: 18px;
+        }
+
+        .ex {
+            font-weight: 500;
+            line-height: 18px;
+
+            color: rgba(42, 42, 42, 0.50);
+        }
+    }
+
+
+    .head {
+        padding: 10px;
+        border-radius: 12px;
+        border: 2px solid #ECECEE;
+        background: #FAFAFA;
+
+        .username {
+            font-weight: 500;
+            line-height: 18px;
+        }
+        .ex {
+            font-weight: 500;
+            line-height: 18px;
+
+            color: rgba(42, 42, 42, 0.50);
+        }
+        .message {
+
+        }
+    }
+
+    .reps {
+        padding: 7px 10px;
+        border-radius: 10px;
+        border: 2px solid #ECECEE;
+        background: #FFF;
+        color: rgba(42, 42, 42, 0.50);
+        font-weight: 500;
+    }
+
+}

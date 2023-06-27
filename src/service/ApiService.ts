@@ -224,6 +224,29 @@ class ApiService {
             console.log(err)
         }
     }
+
+
+    getDiagram = async (token: any, body: {
+        department_id?: string,
+        project_id?: string,
+        date_from?: string,
+        date_to?: string
+    }) => {
+        try {
+            let res = await fetch(endpoints.getDiagram, {
+                method: 'POST',
+                headers: {
+                    ...headers,
+                    'Authorization': token
+                },
+                body:JSON.stringify(body)
+            })
+            const r = await checkAuth(res)
+            return await r;
+        } catch(err) {
+            console.log(err)
+        }
+    }
 }
 
 export default ApiService;
