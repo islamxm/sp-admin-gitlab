@@ -4,11 +4,13 @@ import {FC} from 'react'
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 interface I extends ModalFuncProps {
-
+    onUpdate?: (...args: any[]) => any
 }
 
 
 const EmpModal:FC<I> = (props) => {
+    
+
 
     return (
         <Modal
