@@ -58,6 +58,14 @@
     width: 100%;
 }
 
+.wrapper.gray {
+    background-color: rgba(255, 255, 255, 0.90);
+
+    .text,.icon {
+        color: #000;
+    }
+}
+
 .wrapper.violet_fill {
     background-color: var(--violet_1);
     border-color: var(--violet_1);

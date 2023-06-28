@@ -12,7 +12,7 @@ const menuList:ISidebarMenuItem[] = [
     {
         icon: <LuCopyCheck/>,
         label: 'Заявки в поддержку',
-        link: '/states?status=0',
+        link: '/states',
     },
     {
         icon: <FiGitlab/>,

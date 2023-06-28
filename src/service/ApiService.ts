@@ -267,6 +267,26 @@ class ApiService {
             console.log(err)
         }
     }
+
+    setBlacklistStatus = async (token: any, body: {
+        employee_id: string,
+        blacklist_id: string
+    }) => {
+        try {
+            let res = await fetch(endpoints.setBlacklistStatus, {
+                method: "POST",
+                headers: {
+                    ...headers,
+                    'Authorization': token
+                },
+                body:JSON.stringify(body)
+            })
+            const r = await checkAuth(res)
+            return await r;
+        } catch(err) {
+            console.log(err)
+        }
+    }
 }
 
 export default ApiService;

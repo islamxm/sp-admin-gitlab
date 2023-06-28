@@ -71,6 +71,7 @@ const StatesPage = () => {
         setoffset(0)
     }, [status])
 
+    
 
 
     const getTickets = () => {

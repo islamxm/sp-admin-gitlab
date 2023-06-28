@@ -28,7 +28,7 @@ const endpoints = {
     replyMessage: `${API_PATH}tickets/send_message.php`,
 
     getDiagram: `${API_PATH}gant_diagram.php`,
-    
+    setBlacklistStatus: `${API_PATH}employees/set_blacklist_status.php`,
 
 
 

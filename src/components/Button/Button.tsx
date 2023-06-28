@@ -13,6 +13,8 @@ const switchVariant = (variant: buttonVariants) => {
             return styles.violet_light
         case 'violet-simple':
             return styles.violet_simple
+        case 'gray':
+            return styles.gray
         default:
             return styles.violet_fill
     }

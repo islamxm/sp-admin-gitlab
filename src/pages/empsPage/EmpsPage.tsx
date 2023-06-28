@@ -37,6 +37,21 @@ const EmpsPage = () => {
         }
     }, [token])
 
+
+    const toBlacklist = (id: string | number) => {
+        if(token) {
+            service.setBlacklistStatus(token, {
+                employee_id: id.toString(),
+                blacklist_id: '1'
+            }).then(res => {
+                console.log(res)
+                if(res?.error === false) {
+                    getEmps()
+                }
+            })
+        }
+    }
+
     return (
         <div className={styles.wrapper}>
 
@@ -104,6 +119,7 @@ const EmpsPage = () => {
                                         <IconButton
                                             icon={<IoIosCloseCircleOutline/>}
                                             variant={'danger-simple'}
+                                            onClick={() => toBlacklist(i.id)}
                                             />
                                     </td>
                                 </tr>

@@ -10,4 +10,4 @@ export interface IButton extends HTMLProps<HTMLButtonElement> {
 }
 
 
-export type buttonVariants = 'violet-fill' | 'violet-outlined' | 'violet-simple' | 'violet-light'
+export type buttonVariants = 'violet-fill' | 'violet-outlined' | 'violet-simple' | 'violet-light' | 'gray'

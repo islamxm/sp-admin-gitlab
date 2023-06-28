@@ -1,6 +1,218 @@
 .wrapper {
+    overflow: hidden;
 
     .body {
-        
+        overflow: hidden;
+
+        .filter {
+            padding: 15px;border-radius: 12px 12px 0px 0px;
+            border: 1px solid #ECECEE;
+            background: #F9F9FD;
+        }
+        .main {
+            display: grid;
+            grid-template-columns: 310px 1fr;
+
+            .tickets {
+                grid-column-start: 1;
+                grid-column-end: 2;
+
+                .tickets_head { 
+                    height: 80px;
+                    border: 1px solid #ECECEE;
+                    background: #F9F9FD;
+                    padding: 5px 15px;
+                    display: flex;
+                    align-items: center;
+                }
+                .tickets_body {
+                    .ticket {
+                        height: 80px;
+                        display: flex;
+                        justify-content: center;
+                        padding: 0 15px;
+                        border: 1px solid #ECECEE;
+                        flex-direction: column;
+                        .name {
+                            font-weight: 500;
+                            line-height: 18px;
+                        }
+                        .ex {
+                            color: #4D4AEA;
+
+                        }
+                    }
+                }
+            }
+
+            .cd {
+                display: flex;
+                overflow-x: auto;
+                grid-column-start: 2;
+                grid-column-end: 3;
+                width: 100%;
+
+                .part {
+                    position: relative;
+
+                    &:after {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        height: 100%;
+                        content: '';
+                        width: 2px;
+                        background-color: #C4C2FF;
+
+                    }
+
+                    &:last-child {
+                        border: none
+                    }
+
+                    .head {
+                        background-color: #F9F9FD;
+                    
+
+                        .date {
+                            height: 40px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-align: center;
+                            border: 1px solid #ECECEE;
+                        }
+
+                        .ch {
+                            display: flex;
+
+                            .ch_item {
+                                height: 40px;
+                                border: 1px solid #ECECEE;
+                                width: 60px;
+                                flex: 0 0 auto;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                text-align: center;
+                            }
+                        }
+                    }
+                    .line {
+                        display: flex;
+                        position: relative;
+                        
+                        .test {
+                            position: absolute;
+                            top: 0;left: 0;
+                            border: 1px solid red;
+                        }
+
+                        .cell {
+                            height: 80px;
+                            width: 60px;
+                            flex: 0 0 auto;
+                            border: 1px solid #ECECEE;
+                        }
+                    }
+                }
+            }
+
+            .pd {
+                overflow-x: auto;
+
+                .days {
+                   
+                    height: 40px;
+                    display: flex;
+
+                    .day {
+                        width: 1440px;
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        border: 1px solid #ECECEE;
+                        flex: 0 0 auto;
+                    }
+                }
+
+                .hrs {
+                    display: flex;
+                    height: 40px;
+                    .hrs_item {
+                        flex: 0 0 auto;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 60px;
+                        text-align: center;
+                        border: 1px solid #ECECEE;
+                    }
+                }
+
+                .line {
+                    height: 80px;
+                    // border: 1px solid #ECECEE;
+                    display: flex;
+                    position: relative;
+                    display: flex;
+
+                    .cell {
+                        border: 1px solid #ECECEE;
+                        width: 60px;
+                        flex: 0 0 auto;
+                        border-left: none;
+                        // border-top: none;
+                    }
+
+                    .task {
+                        // border:1px solid red;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        padding: 15px;
+                        display: flex;
+                        align-items: center;
+                       
+
+                        .item {
+                            margin: 0 4px;
+                        }
+
+                        
+                    }
+
+                    .task.compact {
+                        padding: 3px;
+                      
+
+                        .compact_in {
+                            border-radius: 12px;
+                            background: rgba(255, 255, 255, 0.90);
+                            width: 100%;
+                            padding: 3px 5px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+
+                            .compact_item {
+                                display: flex;
+                                align-items: center;
+                                font-weight: 700;
+
+                                span {
+                                    margin-right: 3px;
+                                }
+                                // justify-content: center;
+                                
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
     }
 }

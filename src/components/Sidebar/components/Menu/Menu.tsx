@@ -20,6 +20,8 @@ const Menu:FC<ISidebarMenu> = ({list}) => {
         navigate('/auth', {replace: true})
     }   
 
+    useEffect(() => console.log(pathname), [pathname])
+
     return (
         <div className={styles.wrapper}>
             {list?.map((item, index) => (
