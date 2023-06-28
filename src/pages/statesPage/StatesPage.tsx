@@ -71,7 +71,12 @@ const StatesPage = () => {
         setoffset(0)
     }, [status])
 
-    
+
+    useEffect(() => {
+        nav('/states?status=0')
+    }, [])
+
+
 
 
     const getTickets = () => {
