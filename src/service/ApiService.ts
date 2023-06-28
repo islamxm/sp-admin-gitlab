@@ -247,6 +247,26 @@ class ApiService {
             console.log(err)
         }
     }
+
+    setWorkStatus = async (token: any, body: {
+        ticket_id: string,
+        work_status: '1' | '2'
+    }) => {
+        try {
+            let res = await fetch(endpoints.setWorkStatus, {
+                method: 'POST',
+                headers: {
+                    ...headers,
+                    'Authorization': token
+                },
+                body:JSON.stringify(body)
+            })
+            const r = await checkAuth(res)
+            return await r;
+        } catch(err) {
+            console.log(err)
+        }
+    }
 }
 
 export default ApiService;

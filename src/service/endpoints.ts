@@ -27,7 +27,8 @@ const endpoints = {
 
     replyMessage: `${API_PATH}tickets/send_message.php`,
 
-    getDiagram: `${API_PATH}gant_diagram.php`
+    getDiagram: `${API_PATH}gant_diagram.php`,
+    
 
 
 

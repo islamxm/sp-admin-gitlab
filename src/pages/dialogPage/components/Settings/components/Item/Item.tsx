@@ -28,12 +28,12 @@ const Item:FC<I> = ({
                 {role}
                 </div>
             </div>
-            <div className={styles.action}>
+            {/* <div className={styles.action}>
                 <IconButton
                     icon={<IoIosCloseCircleOutline/>}
                     variant={'danger-simple'}
                     />
-            </div>
+            </div> */}
         </div>
     )
 }

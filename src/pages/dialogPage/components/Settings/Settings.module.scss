@@ -11,6 +11,49 @@
             line-height: 38px;
         }
 
+        .dr {
+           
+
+            .dr_label {
+                color: rgba(42, 42, 42, 0.50);
+                font-size: 15px;
+                font-family: Inter;
+                font-weight: 500;
+                line-height: 18px;
+                margin-bottom: 5px;
+            }
+
+            .card {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 15px;
+                border: 2px solid #ECECEE;
+                background: #FFF;
+                border-radius: 12px;
+
+
+                .card_body {
+                    .card_name {
+                        font-size: 15px;
+                        font-weight: 500;
+                        line-height: 140%;
+                        margin-bottom: 4px;
+                    }
+                    .card_ex {
+                        color: rgba(42, 42, 42, 0.50);
+                        font-size: 12px;
+                        font-weight: 500;
+                        line-height: 18px;
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+
         .main {
 
             .action {

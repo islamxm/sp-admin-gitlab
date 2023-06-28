@@ -28,6 +28,8 @@ const DialogPage = () => {
 
     //helpers
     const [closeLoad, setCloseLoad] = useState(false)
+    const [ticketEndLoad, setTicketEndLoad] = useState(false)
+    const [sendMessageLoad, setSendMessageLoad] = useState(false)
 
     //data
     const [urgencys, seturgencys] = useState<any[]>([])
@@ -41,7 +43,7 @@ const DialogPage = () => {
     const [members, setMembers] = useState<any[]>([])
     const [urgency_id, seturgency_id] = useState<any>(null)
     const [links, setLinks] = useState<any[]>([])
-
+    const [assignee_id, setassignee_id] = useState<any>()
 
 
 
@@ -55,15 +57,16 @@ const DialogPage = () => {
     const getTicket = () => {
         if(id && token)  {
             service.getTicket(token, id).then(res => {
+                console.log(res)
+                
                 settitle(res?.title)
                 setdescr(res?.description)
                 setMembers(res?.members)
+                setassignee_id(res?.assignee_id)
                 setLinks(res?.links)
                 const parents:any[] = res?.activities?.filter((i:any) => i.replied_message === '0')
                 setActivities(parents)
                 setReps(res?.activities?.filter((i:any) => i.replied_message !== '0'))
-                //console.log(res?.activities?.filter((i:any) => i.replied_message !== '0'))
-                console.log(res?.activities?.filter((i:any) => i.action_type === '5'))
             })
         }
     }
@@ -75,6 +78,7 @@ const DialogPage = () => {
             })
         }
     }
+
     useEffect(() => {
         getCreationData()
     }, [token])
@@ -96,6 +100,48 @@ const DialogPage = () => {
                 }
             }).finally(() => {
                 setCloseLoad(false)
+            })
+        }
+    }
+
+
+    const onSendMessage = () => {
+        if(token && text && id) {
+            setSendMessageLoad(true)
+            service.sendMessage(token, {
+                ticket_id: id,
+                message: text
+            }).then(res => {
+                console.log(res)
+                if(res?.error === false) {
+                    getTicket()
+                    setText('')
+                } else {
+                    message.error('Произошла ошибка')
+                }
+            }).finally(() => {
+                setSendMessageLoad(false)
+                
+            })
+        }
+    }
+
+
+    const onEndTicket = () => {
+        if(token && id) {
+            setTicketEndLoad(true)
+            service.setWorkStatus(token, {
+                ticket_id: id,
+                work_status: '2'
+            }).then(res => {
+                if(res?.error === false) {
+                    message.success('Выполнение заявки завершена')
+                    nav('/states?status=0')
+                } else {
+                    message.error('Произошла ошибка')
+                }
+            }).finally(() => {
+                setTicketEndLoad(false)
             })
         }
     }
@@ -163,6 +209,7 @@ const DialogPage = () => {
                                 </div>
                                 <div className={styles.send}>
                                     <IconButton
+                                        onClick={onSendMessage}
                                         disabled={!(text && id)}
                                         variant={'violet-fill'}
                                         icon={<FiArrowUp/>}
@@ -172,6 +219,8 @@ const DialogPage = () => {
                             </div>
                             <div className={styles.close}>
                                 <Button
+                                    onClick={onEndTicket}
+                                    load={ticketEndLoad}
                                     text={'Завершить выполнение'}
                                     variant={'violet-simple'}
                                     />
@@ -180,6 +229,7 @@ const DialogPage = () => {
                     </div>
                     <div className={styles.side}>
                         <Settings
+                            assignee_id={assignee_id}
                             members={members}
                             urgencys={urgencys}
                             urgency_id={urgency_id}
