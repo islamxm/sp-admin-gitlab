@@ -1,5 +1,5 @@
 import styles from './ChatItem.module.scss';
-import {FC, useEffect} from 'react';
+import {FC, useEffect, useRef, useState} from 'react';
 import dialogActiveTypes from '../../../../../../utils/dialogActiveTypes';
 import PriorityChip from '../../../../../../components/PriorityChip/PriorityChip';
 import moment from 'moment';
@@ -38,6 +38,24 @@ const ChatItem:FC<I> = ({
     reps,
     members
 }) => {
+
+    const bodyRef = useRef<HTMLDivElement>(null)
+    const [isOpen, setIsOpen] = useState(false)
+    const [height, setHeight] = useState(0)
+
+    useEffect(() => {
+        if(bodyRef?.current) {
+            if(isOpen) {
+                setHeight(bodyRef.current.scrollHeight)
+            } else {
+                setHeight(0)
+            }
+        }
+    }, [isOpen, bodyRef])
+
+    useEffect(() => {
+        console.log('reps', reps)
+    }, [reps])
 
     if(action_type === dialogActiveTypes.startWorking) {
         return (    
@@ -96,12 +114,28 @@ const ChatItem:FC<I> = ({
                 {
                     (reps && reps?.length > 0) && (
                         <>
-                            <div className={styles.reps}>
+                            <div onClick={() => setIsOpen(s => !s)} className={styles.reps}>
                                 Ответы {reps?.length}
                             </div>
-                            <div className={styles.reps_body}>
+                            <div className={styles.reps_body} ref={bodyRef} style={{height}}>
                                 <div className={styles.reps_body_in}>
-
+                                    {
+                                        reps?.map(i => (
+                                            <div className={styles.reps_item}>
+                                                <div className={styles.reps_item_head}>
+                                                    <span className={styles.reps_item_head_username}>
+                                                        {members?.find(i => i.id == employee_id)?.name}
+                                                    </span>
+                                                    <span className={styles.reps_item_head_tm}>
+                                                    • {moment(i.date).fromNow()}
+                                                    </span>
+                                                </div>
+                                                <div className={styles.reps_item_text}>
+                                                    {i.message}
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                             </div>
                         </>

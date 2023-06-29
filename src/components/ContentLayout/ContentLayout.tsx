@@ -1,16 +1,18 @@
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 import styles from './ContentLayout.module.scss';
 
 
 
 const ContentLayout = ({
-    children
+    children,
+    style
 }: {
-    children?: ReactNode
+    children?: ReactNode,
+    style?: CSSProperties
 }) => {
 
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} style={style}>
             {children}
         </div>
     )

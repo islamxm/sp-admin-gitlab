@@ -176,57 +176,61 @@ const DialogPage = () => {
                     </div>
                 </div>
             </Header>
-            <ContentLayout>
+            <ContentLayout style={{paddingBottom: 0}}>
                 <div className={styles.body}>
-                    <div className={styles.main}>
-                        <div className={styles.head}><ProjectHead title={title} descr={descr} /></div>
-                        <div className={styles.chat}>
-                            {
-                                links?.length > 0 && (
-                                    <div className={styles.linked}>
-                                        <LinkedStates
-                                            list={links}
-                                            />
-                                    </div>
-                                )
-                            }
-                            <div className={styles.chatlist}>
-                                <ChatList
-                                    members={members}
-                                    list={activities}
-                                    reps={reps}
-                                    />
-                            </div>  
+                    <div className={styles.ff}>
+                        <div className={styles.main}>
+                            <div className={styles.head}><ProjectHead title={title} descr={descr} /></div>
+                            <div className={styles.chat}>
+                                {
+                                    links?.length > 0 && (
+                                        <div className={styles.linked}>
+                                            <LinkedStates
+                                                list={links}
+                                                />
+                                        </div>
+                                    )
+                                }
+                                <div className={styles.chatlist}>
+                                    <ChatList
+                                        members={members}
+                                        list={activities}
+                                        reps={reps}
+                                        />
+                                </div>  
+                            </div>
+                            
                         </div>
                         <div className={styles.action}>
-                            <div className={styles.action_main}>
-                                <div className={styles.input}>
-                                    <input 
-                                        placeholder='Cообщение'
-                                        value={text}
-                                        onChange={(e:React.ChangeEvent<HTMLInputElement>) => setText(e.target.value)}
-                                        type="text" />
+                                <div className={styles.action_main}>
+                                    <div className={styles.input}>
+                                        <input 
+                                            placeholder='Cообщение'
+                                            value={text}
+                                            onChange={(e:React.ChangeEvent<HTMLInputElement>) => setText(e.target.value)}
+                                            type="text" />
+                                    </div>
+                                    <div className={styles.send}>
+                                        <IconButton
+                                            onClick={onSendMessage}
+                                            disabled={!(text && id)}
+                                            variant={'violet-fill'}
+                                            icon={<FiArrowUp/>}
+                                            size={40}
+                                            />
+                                    </div>
                                 </div>
-                                <div className={styles.send}>
-                                    <IconButton
-                                        onClick={onSendMessage}
-                                        disabled={!(text && id)}
-                                        variant={'violet-fill'}
-                                        icon={<FiArrowUp/>}
-                                        size={40}
+                                <div className={styles.close}>
+                                    <Button
+                                        onClick={onEndTicket}
+                                        load={ticketEndLoad}
+                                        text={'Завершить выполнение'}
+                                        variant={'violet-simple'}
                                         />
                                 </div>
                             </div>
-                            <div className={styles.close}>
-                                <Button
-                                    onClick={onEndTicket}
-                                    load={ticketEndLoad}
-                                    text={'Завершить выполнение'}
-                                    variant={'violet-simple'}
-                                    />
-                            </div>
-                        </div>
                     </div>
+                    
                     <div className={styles.side}>
                         <Settings
                             assignee_id={assignee_id}

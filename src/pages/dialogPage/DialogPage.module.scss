@@ -8,19 +8,15 @@
 
         .action_item {
             margin: 0 6px;
-
         }
     }
 
     .body {
         display: flex;
-        
-        .main {
-            width: 100%;
-            padding-right: 25px;
-            height: calc(100vh - 110px);
+
+        .ff {
             position: relative;
-            padding-bottom: 138px;
+            width: 100%;
 
             .action {
                 position: absolute;
@@ -57,6 +53,22 @@
                     }
                 }
             }
+
+        }
+        
+        .main {
+            width: 100%;
+            padding-right: 25px;
+            height: calc(100vh - 110px);
+            overflow-y: auto;
+            position: relative;
+            padding-bottom: 138px;
+
+            .chat {
+                
+            }
+
+            
         }
 
         .side {

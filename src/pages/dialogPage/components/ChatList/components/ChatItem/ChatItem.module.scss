@@ -47,6 +47,39 @@
         background: #FFF;
         color: rgba(42, 42, 42, 0.50);
         font-weight: 500;
+
+        
+    }
+    .reps_body {
+        overflow: hidden;
+        transition: all .3s ease;
+        will-change: height;
+        
+
+        .reps_body_in {
+            padding: 10px 20px;
+            border: 2px solid #ECECEE;
+            border-radius: 12px;
+            background-color: #fff;
+
+            .reps_item {
+                margin-bottom: 12px;
+
+                &:last-child {margin-bottom: 0;}
+                .reps_item_head {
+                    margin-bottom: 5px;
+                    .reps_item_head_username {
+                        font-weight: 500;
+                        line-height: 18px;
+                    }
+                    .reps_item_head_tm {
+                        font-weight: 500;
+                        line-height: 18px;
+                        color: rgba(42, 42, 42, 0.50);
+                    }
+                }
+            }
+        }
     }
 
 }
